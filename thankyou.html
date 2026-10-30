@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Submitted - College Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container thankyou-container">
+        <!-- Header Banner (Matching Blue Theme) -->
+        <header class="form-header">
+            <span class="badge">Confirmation Receipt</span>
+            <h1>Submission Received</h1>
+            <p>Thank you for submitting your college student registration details.</p>
+        </header>
+
+        <!-- Main Confirmation Card Content -->
+        <div class="thankyou-card">
+            <div class="success-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"></path>
+                </svg>
+            </div>
+
+            <!-- Dynamic Personalized Greeting -->
+            <h1>Thank You, <span id="displayGreetingName" class="student-highlight">Student</span>!</h1>
+            <p class="subtitle">
+                Your registration has been successfully recorded. An official verification email with your application reference number has been sent to your registered email address.
+            </p>
+
+            <!-- Summary of Submitted Details Card -->
+            <div class="receipt-card">
+                <div class="receipt-header">
+                    <h3>📄 Submitted Registration Details</h3>
+                    <span class="receipt-badge">Verified</span>
+                </div>
+
+                <div class="receipt-grid">
+                    <div class="receipt-item">
+                        <span class="receipt-label">Student Name</span>
+                        <span class="receipt-value" id="dispFullName">—</span>
+                    </div>
+
+                    <div class="receipt-item">
+                        <span class="receipt-label">Roll No / Student ID</span>
+                        <span class="receipt-value" id="dispRollNo">—</span>
+                    </div>
+
+                    <div class="receipt-item">
+                        <span class="receipt-label">Email Address</span>
+                        <span class="receipt-value" id="dispEmail">—</span>
+                    </div>
+
+                    <div class="receipt-item">
+                        <span class="receipt-label">Phone Number</span>
+                        <span class="receipt-value" id="dispPhone">—</span>
+                    </div>
+
+                    <div class="receipt-item">
+                        <span class="receipt-label">Course / Degree</span>
+                        <span class="receipt-value" id="dispCourse">—</span>
+                    </div>
+
+                    <div class="receipt-item">
+                        <span class="receipt-label">Year of Study</span>
+                        <span class="receipt-value" id="dispYear">—</span>
+                    </div>
+
+                    <div class="receipt-item full-width">
+                        <span class="receipt-label">Department / Branch</span>
+                        <span class="receipt-value" id="dispDepartment">—</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Next Steps Box -->
+            <div class="info-box">
+                <h3>📌 What Happens Next?</h3>
+                <ul>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span><strong>Application Review:</strong> The admissions office will verify your submitted records within 2–3 business days.</span>
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span><strong>Document Verification:</strong> Keep your original certificates and Student ID ready for in-person orientation.</span>
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span><strong>Campus Portal Access:</strong> Login credentials for the student portal will be delivered via SMS/Email shortly.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="thankyou-actions">
+                <a href="index.html" class="btn btn-primary btn-link">
+                    ← Back to Registration Form
+                </a>
+                <button type="button" class="btn btn-secondary" onclick="window.print()">
+                    🖨️ Print Confirmation
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to Extract and Display Submitted Form Details -->
+    <script>
+        // Read URL query parameters submitted from index.html
+        const params = new URLSearchParams(window.location.search);
+
+        const fullName = params.get('fullName') || 'Student';
+        const rollNo = params.get('rollNo') || 'N/A';
+        const email = params.get('email') || 'N/A';
+        const phone = params.get('phone') || 'N/A';
+        const course = params.get('course') || 'N/A';
+        const department = params.get('department') || 'N/A';
+        const year = params.get('year') || 'N/A';
+
+        // Update the greeting heading
+        document.getElementById('displayGreetingName').textContent = fullName;
+
+        // Populate the details receipt card
+        document.getElementById('dispFullName').textContent = fullName;
+        document.getElementById('dispRollNo').textContent = rollNo;
+        document.getElementById('dispEmail').textContent = email;
+        document.getElementById('dispPhone').textContent = phone;
+        document.getElementById('dispCourse').textContent = course;
+        document.getElementById('dispDepartment').textContent = department;
+        document.getElementById('dispYear').textContent = year;
+    </script>
+
+</body>
+</html>
